@@ -1,0 +1,46 @@
+<div class="admin-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+    <div class="container-fluid">
+      <!-- Logo before Admin text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="growth.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'mylogo.png' with your logo image -->
+        Admin
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a routerLink="/app-dashboard" class="btn btn-light">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a routerLink="/app-add-course" class="btn btn-light">Add Course</a>
+          </li>
+          <li class="nav-item">
+            <a href="https://api.coursera.org/api/courses.v1" class="btn btn-light me-2">Recommended Courses</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/profile" class="btn btn-light">Profile</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+<router-outlet></router-outlet>
+
+<div class="course-list">
+    <h2>Available Courses</h2>
+    <ul *ngIf="courses.length > 0; else noCourses">
+      <li *ngFor="let course of courses">
+        <h3>{{ course.title }}</h3>
+        <p>{{ course.description }}</p>
+        <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
+      </li>
+    </ul>
+    <ng-template #noCourses>
+      <p>No courses available at the moment.</p>
+    </ng-template>
+  </div>
+  

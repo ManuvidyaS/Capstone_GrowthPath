@@ -1,0 +1,28 @@
+<div class="form-container">
+    <h2>Get Course By ID</h2>
+    
+    <form (ngSubmit)="getCourseById()" novalidate>
+      <div class="form-group">
+        <label for="courseId">Course ID</label>
+        <input
+          type="number"
+          id="courseId"
+          [(ngModel)]="courseId"
+          name="courseId"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Fetch Course</button>
+    </form>
+  
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <div *ngIf="course">
+      <h3>Course Details</h3>
+      <p><strong>Title:</strong> {{ course.title }}</p>
+      <p><strong>Description:</strong> {{ course.description }}</p>
+      <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
+    </div>
+  </div>
+  

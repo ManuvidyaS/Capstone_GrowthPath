@@ -1,0 +1,14 @@
+.homepage-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.carousel {
+  margin-top: 1rem; /* Optional, to give some space between navbar and carousel */
+}
+
+.carousel-image {
+  height: calc(100vh - 56px); /* Adjusts height to fit under the navbar */
+  object-fit: cover;
+}

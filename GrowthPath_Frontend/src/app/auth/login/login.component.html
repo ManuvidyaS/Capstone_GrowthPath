@@ -1,0 +1,73 @@
+<section class="vh-100 d-flex justify-content-center align-items-center">
+  <div class="container-fluid h-custom">
+    <div class="row d-flex justify-content-center align-items-center">
+      <!-- Image Section (Large as before) -->
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img
+          src="growth.png"
+          class="img-fluid"
+          alt="Sample image"
+        />
+      </div>
+
+      <!-- Form Section (Medium Size) -->
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <div class="card p-4 shadow-lg">
+          <h3 class="text-center text-dark fw-bold mb-4">Login</h3>
+          <form (ngSubmit)="onLogin()" #loginForm="ngForm" novalidate>
+            <!-- Username Field -->
+            <div class="mb-4">
+              <label class="form-label" for="userName">Username</label>
+              <input
+                type="text"
+                id="userName"
+                class="form-control form-control-lg"
+                placeholder="Enter your username"
+                [(ngModel)]="loginData.userName"
+                name="userName"
+                required
+                #userNameField="ngModel"
+                [class.is-invalid]="userNameField.invalid && userNameField.touched"
+              />
+              <div class="invalid-feedback">Please enter your username.</div>
+            </div>
+
+            <!-- Password Field -->
+            <div class="mb-3">
+              <label class="form-label" for="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                class="form-control form-control-lg"
+                placeholder="Enter your password"
+                [(ngModel)]="loginData.password"
+                name="password"
+                required
+                #passwordField="ngModel"
+                [class.is-invalid]="passwordField.invalid && passwordField.touched"
+              />
+              <div class="invalid-feedback">Please enter your password.</div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center text-lg-start mt-4 pt-2">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg w-100"
+                [disabled]="loginForm.invalid"
+                style="padding-left: 2.5rem; padding-right: 2.5rem;"
+              >
+                Login
+              </button>
+            </div>
+
+            <!-- Error Message -->
+            <p *ngIf="errorMessage" class="text-danger text-center mt-3 fw-semibold">
+              {{ errorMessage }}
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

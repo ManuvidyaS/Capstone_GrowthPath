@@ -1,0 +1,19 @@
+<div class="delete-course-container">
+    <h2>Delete Course</h2>
+    <form (ngSubmit)="deleteCourse()">
+      <div class="form-group">
+        <label for="courseId">Course ID:</label>
+        <input
+          type="number"
+          id="courseId"
+          [(ngModel)]="courseId"
+          name="courseId"
+          class="form-control"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-danger">Delete Course</button>
+    </form>
+    <p *ngIf="resultMessage">{{ resultMessage }}</p>
+  </div>
+  
