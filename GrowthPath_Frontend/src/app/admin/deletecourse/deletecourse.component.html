@@ -1,19 +1,130 @@
-<div class="delete-course-container">
-    <h2>Delete Course</h2>
-    <form (ngSubmit)="deleteCourse()">
-      <div class="form-group">
-        <label for="courseId">Course ID:</label>
-        <input
-          type="number"
-          id="courseId"
-          [(ngModel)]="courseId"
-          name="courseId"
-          class="form-control"
-          required
-        />
+<div class="admin-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
+    <div class="container-fluid">
+      <!-- Logo before Admin text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
+        Admin
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-get-course" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-add-course" class="nav-link">Add Course</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommended-course" class="nav-link">Recommended Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-profile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-user-feedback" class="nav-link">Get Feedback</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
+          </li>
+        </ul>
       </div>
-      <button type="submit" class="btn btn-danger">Delete Course</button>
-    </form>
-    <p *ngIf="resultMessage">{{ resultMessage }}</p>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <!-- Delete Course Card Section -->
+  <div class="container mt-5 pt-5 d-flex justify-content-center">
+    <div class="card shadow-sm p-4 w-100" style="max-width: 500px;">
+      <h2 class="card-title text-center mb-4">Delete Course</h2>
+      <form (ngSubmit)="deleteCourse()">
+        <div class="mb-3">
+          <label for="courseId" class="form-label">Course ID:</label>
+          <input
+            type="number"
+            id="courseId"
+            [(ngModel)]="courseId"
+            name="courseId"
+            class="form-control"
+            required
+          />
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Delete Course</button>
+      </form>
+      <p *ngIf="resultMessage" class="mt-3 text-center">{{ resultMessage }}</p>
+    </div>
   </div>
-  
+</div>
+
+<!-- CSS Styling -->
+<style>
+  .admin-container {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  /* Fixed Navbar */
+  .navbar {
+    background-color: #000 !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  /* Navbar Links */
+  .navbar-nav .nav-item .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  /* Navbar Hover Effect */
+  .navbar-nav .nav-item .nav-link:hover,
+  .navbar-nav .nav-item .nav-link:focus {
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.05);
+  }
+
+  /* Active Link Effect */
+  .navbar-nav .nav-item .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  /* Delete Course Card */
+  .card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  .form-label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .btn-danger {
+    font-size: 16px;
+  }
+
+  /* Responsive Input Fields */
+  .form-control {
+    padding: 10px;
+  }
+</style>

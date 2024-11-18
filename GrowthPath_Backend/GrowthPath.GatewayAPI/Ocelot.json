@@ -364,7 +364,34 @@
       ],
       "UpstreamPathTemplate": "/feedback-api/course/{courseId}",
       "UpstreamHttpMethod": [ "GET" ]
+    },
+
+    //public api
+
+    {
+
+      "DownstreamPathTemplate": "/api/public/courses-v1",
+
+      "DownstreamScheme": "http",
+
+      "DownstreamHostAndPorts": [
+
+        {
+
+          "Host": "localhost",
+
+          "Port": 7727
+
+        }
+
+      ],
+
+      "UpstreamPathTemplate": "/public-api/courses-v1",
+
+      "UpstreamHttpMethod": [ "GET" ]
+
     }
+
   ],
 
   "GlobalConfiguration": {

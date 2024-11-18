@@ -1,58 +1,148 @@
-<!-- src/app/user/update-course/update-course.component.html -->
-
-<div class="update-course">
-
-    <h2>Update Course Progress</h2>
- 
- 
-    <form [formGroup]="updateCourseForm" (ngSubmit)="onSubmit()">
- 
-      <div class="form-group">
- 
-        <label for="employeeId">Employee ID</label>
- 
-        <input id="employeeId" formControlName="employeeId" type="text" class="form-control" />
- 
+<div class="user-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- Logo before User text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
+        User
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-layout" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/feedback" class="nav-link">Feedback</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
+          </li>
+        </ul>
       </div>
- 
- 
-      <div class="form-group">
- 
-        <label for="courseId">Course ID</label>
- 
-        <input id="courseId" formControlName="courseId" type="number" class="form-control" />
- 
-      </div>
- 
- 
-      <div class="form-group">
- 
-        <label for="modulesCompleted">Modules Completed</label>
- 
-        <input id="modulesCompleted" formControlName="modulesCompleted" type="number" class="form-control" />
- 
-      </div>
- 
- 
-      <button type="submit" [disabled]="isLoading" class="btn btn-primary">Update Progress</button>
- 
-    </form>
- 
- 
-    <div *ngIf="successMessage" class="alert alert-success mt-3">
- 
-      {{ successMessage }}
- 
     </div>
- 
- 
-    <div *ngIf="errorMessage" class="alert alert-danger mt-3">
- 
-      {{ errorMessage }}
- 
+  </nav>
+
+  <!-- Content Section -->
+  <div class="content-container mt-5 pt-5">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-center">Update Course Progress</h2>
+        <form [formGroup]="updateCourseForm" (ngSubmit)="onSubmit()">
+          <div class="form-group mb-3">
+            <label for="employeeId">Employee ID</label>
+            <input id="employeeId" formControlName="employeeId" type="text" class="form-control" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="courseId">Course ID</label>
+            <input id="courseId" formControlName="courseId" type="number" class="form-control" />
+          </div>
+          <div class="form-group mb-3">
+            <label for="modulesCompleted">Modules Completed</label>
+            <input id="modulesCompleted" formControlName="modulesCompleted" type="number" class="form-control" />
+          </div>
+          <button type="submit" [disabled]="isLoading" class="btn btn-primary w-100">Update Progress</button>
+        </form>
+        <div *ngIf="successMessage" class="alert alert-success mt-3">
+          {{ successMessage }}
+        </div>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+      </div>
     </div>
- 
   </div>
- 
- 
- 
+</div>
+
+<!-- CSS Styling -->
+<style>
+/* Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000 !important;
+  padding: 0.3rem 1rem;
+  height: 50px;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.navbar-nav .active {
+  border-bottom: 2px solid #fff;
+}
+
+/* Content Styling */
+.content-container {
+  margin-top: 70px;
+  padding: 20px;
+}
+
+.card {
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #004085;
+}
+
+.alert {
+  font-size: 0.9rem;
+}
+</style>

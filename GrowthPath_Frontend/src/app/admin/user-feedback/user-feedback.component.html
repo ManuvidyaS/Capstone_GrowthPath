@@ -1,0 +1,148 @@
+<div class="admin-container">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
+      <div class="container-fluid">
+        <!-- Logo before Admin text -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+          <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
+          Admin
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-dashboard" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-add-course" class="nav-link">Add Course</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-recommended-course" class="nav-link">Recommended Courses</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-profile" class="nav-link">Profile</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-user-feedback" class="nav-link">Get Feedback</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/home-page" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    
+    <router-outlet></router-outlet>
+
+    <!-- Content Section with Gap from Navbar -->
+    <div class="container mt-5 pt-5">
+      <h2 class="text-center mb-4">User Feedbacks</h2>
+  
+      <!-- Error Message -->
+      <p *ngIf="errorMessage" class="text-danger text-center">{{ errorMessage }}</p>
+  
+      <!-- Feedback List -->
+      <div class="feedback-list">
+        <div *ngFor="let feedback of feedbacks" class="feedback-card p-3 mb-3 shadow-sm rounded">
+          <!-- User ID -->
+          <h5 class="fw-bold">User ID: {{ feedback.userid }}</h5>
+          
+          <!-- Course ID -->
+          <p class="text-muted mb-1">Course ID: {{ feedback.courseid }}</p>
+  
+          <!-- Rating -->
+          <p class="text-muted mb-1">Rating: {{feedback.rating}}
+            
+          </p>
+  
+          <!-- Suggestion -->
+          <p class="mb-0"><strong>Suggestion:</strong> {{ feedback.suggestion }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- CSS Styling -->
+  <style>
+    .admin-container {
+  font-family: 'Roboto', sans-serif;
+}
+
+.feedback-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.feedback-card {
+  border: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.feedback-card h5,
+.feedback-card p {
+  margin: 10px 0;
+}
+
+.feedback-card .text-warning {
+  color: #ffc107; /* Star color for ratings */
+}
+
+.feedback-card strong {
+  font-weight: bold;
+}
+
+/* Fixed Navbar */
+.navbar {
+  background-color: #000 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Links */
+.navbar-nav .nav-item .nav-link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* White text color */
+  padding: 10px 15px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.navbar-nav .nav-item .nav-link:hover,
+.navbar-nav .nav-item .nav-link:focus {
+  background-color: #444; /* Change background on hover */
+  color: #fff;
+  transform: scale(1.05); /* Slight zoom */
+}
+
+/* Active Link Styling */
+.navbar-nav .nav-item .active {
+  background-color: #222;
+  color: #fff;
+}
+
+/* Responsive adjustments */
+.navbar-toggler {
+  border: none;
+}
+
+.navbar-toggler-icon {
+  background-color: white;
+}
+
+/* Add gap between navbar and content */
+.container {
+  margin-top: 80px; /* Adjust this value to create the desired gap */
+  padding-top: 50px; /* Add top padding if needed */
+}
+
+  </style>
+  

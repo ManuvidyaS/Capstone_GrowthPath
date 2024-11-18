@@ -5,11 +5,12 @@ import { MatSnackBar } from '@angular/material/snack-bar'; // Import MatSnackBar
 import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { FeedbackService } from '../../service/feedback.service';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink,RouterOutlet],
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css'],
   providers: [FeedbackService]
@@ -17,8 +18,9 @@ import { FeedbackService } from '../../service/feedback.service';
 export class FeedbackComponent {
   rating: number = 0;
   suggestion: string = '';
-  courseId: number = 101;
-  userId: number = 1;
+  courseId: number = 1;
+userId: any;
+
 
   constructor(private feedbackService: FeedbackService, private snackBar: MatSnackBar) {}
 
@@ -27,7 +29,7 @@ export class FeedbackComponent {
       rating: this.rating,
       suggestion: this.suggestion,
       courseId: this.courseId,
-      userId: this.userId
+      userId: this.userId // Replace with actual user ID
     };
 
     this.feedbackService.submitFeedback(feedbackData).pipe(

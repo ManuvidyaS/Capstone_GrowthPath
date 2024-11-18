@@ -1,121 +1,197 @@
-<section class="vh-100 d-flex justify-content-center align-items-center">
-  <div class="container-fluid h-auto">
-    <div class="row d-flex justify-content-center align-items-center">
-      <!-- Image Section (Fixed Size) -->
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img
-          src="growth.png"
-          class="img-fluid"
-          alt="Sample image"
-          style="max-width: 100%; height: auto;"
-        />
+<div class="admin-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
+    <div class="container-fluid">
+      <!-- Logo before Admin text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 25px; height: 25px;">
+        Admin
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-dashboard" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-add-course" class="nav-link">Add Course</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommended-course" class="nav-link">Recommended Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-profile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-user-feedback" class="nav-link">Get Feedback</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/register" class="nav-link">Register</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
+          </li>
+        </ul>
       </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 
-      <!-- Form Section (Compact and Fixed Size) -->
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <div class="card p-4 shadow-lg" style="background-color: #ffffff; border-radius: 16px; width: 100%; max-width: 380px;">
-          <h3 class="text-center text-dark fw-bold mb-4">Register</h3>
-          <form (ngSubmit)="onRegister()" #registerForm="ngForm" novalidate>
-            <!-- Name Field -->
-            <div class="mb-3">
-              <label class="form-label" for="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                class="form-control form-control-sm"
-                placeholder="Enter your name"
-                [(ngModel)]="registerData.name"
-                name="name"
-                required
-                #nameField="ngModel"
-                [class.is-invalid]="nameField.invalid && nameField.touched"
-              />
-              <div class="invalid-feedback">Please enter your name.</div>
-            </div>
+  <section class="vh-100 d-flex justify-content-center align-items-center content-section">
+    <div class="container-fluid h-auto">
+      <div class="row d-flex justify-content-center align-items-center">
+        <!-- Image Section -->
+        <div class="col-md-9 col-lg-6 col-xl-5">
+          <img
+            src="growth.png"
+            class="img-fluid"
+            alt="Sample image"
+            style="max-width: 100%; height: auto;"
+          />
+        </div>
 
-            <!-- Email Field -->
-            <div class="mb-3">
-              <label class="form-label" for="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                class="form-control form-control-sm"
-                placeholder="Enter your email"
-                [(ngModel)]="registerData.email"
-                name="email"
-                required
-                #emailField="ngModel"
-                [class.is-invalid]="emailField.invalid && emailField.touched"
-              />
-              <div class="invalid-feedback">Please enter a valid email.</div>
-            </div>
+        <!-- Form Section -->
+        <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+          <div class="card p-4 shadow-lg" style="background-color: #ffffff; border-radius: 16px; width: 100%; max-width: 380px;">
+            <h3 class="text-center text-dark fw-bold mb-4">Register</h3>
+            <form (ngSubmit)="onRegister()" #registerForm="ngForm" novalidate>
+              <!-- Name Field -->
+              <div class="mb-3">
+                <label class="form-label" for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control form-control-sm"
+                  placeholder="Enter your name"
+                  [(ngModel)]="registerData.name"
+                  name="name"
+                  required
+                  #nameField="ngModel"
+                  [class.is-invalid]="nameField.invalid && nameField.touched"
+                />
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
 
-            <!-- Password Field -->
-            <div class="mb-3">
-              <label class="form-label" for="password">Password</label>
-              <input
-                type="password"
-                id="password"
-                class="form-control form-control-sm"
-                placeholder="Enter your password"
-                [(ngModel)]="registerData.password"
-                name="password"
-                required
-                #passwordField="ngModel"
-                [class.is-invalid]="passwordField.invalid && passwordField.touched"
-              />
-              <div class="invalid-feedback">Please enter your password.</div>
-            </div>
+              <!-- Email Field -->
+              <div class="mb-3">
+                <label class="form-label" for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control form-control-sm"
+                  placeholder="Enter your email"
+                  [(ngModel)]="registerData.email"
+                  name="email"
+                  required
+                  #emailField="ngModel"
+                  [class.is-invalid]="emailField.invalid && emailField.touched"
+                />
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
 
-            <!-- Phone Number Field -->
-            <div class="mb-3">
-              <label class="form-label" for="phoneNumber">Phone Number</label>
-              <input
-                type="text"
-                id="phoneNumber"
-                class="form-control form-control-sm"
-                placeholder="Enter your phone number"
-                [(ngModel)]="registerData.phoneNumber"
-                name="phoneNumber"
-              />
-            </div>
+              <!-- Password Field -->
+              <div class="mb-3">
+                <label class="form-label" for="password">Password</label>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control form-control-sm"
+                  placeholder="Enter your password"
+                  [(ngModel)]="registerData.password"
+                  name="password"
+                  required
+                  #passwordField="ngModel"
+                  [class.is-invalid]="passwordField.invalid && passwordField.touched"
+                />
+                <div class="invalid-feedback">Please enter your password.</div>
+              </div>
 
-            <!-- Role Selection -->
-            <div class="mb-3">
-              <label class="form-label" for="role">Role</label>
-              <select
-                id="role"
-                [(ngModel)]="registerData.role"
-                name="role"
-                class="form-control form-control-sm"
-              >
-                <option value="Employee">Employee</option>
-                <option value="Admin">Admin</option>
-              </select>
-            </div>
+              <!-- Phone Number Field -->
+              <div class="mb-3">
+                <label class="form-label" for="phoneNumber">Phone Number</label>
+                <input
+                  type="text"
+                  id="phoneNumber"
+                  class="form-control form-control-sm"
+                  placeholder="Enter your phone number"
+                  [(ngModel)]="registerData.phoneNumber"
+                  name="phoneNumber"
+                />
+              </div>
 
-            <!-- Submit Button -->
-            <div class="text-center text-lg-start mt-4 pt-2">
-              <button
-                type="submit"
-                class="btn btn-primary btn-sm w-100"
-                [disabled]="registerForm.invalid"
-                style="padding-left: 2.5rem; padding-right: 2.5rem;"
-              >
-                Register
-              </button>
-            </div>
+              <!-- Role Selection -->
+              <div class="mb-3">
+                <label class="form-label" for="role">Role</label>
+                <select
+                  id="role"
+                  [(ngModel)]="registerData.role"
+                  name="role"
+                  class="form-control form-control-sm"
+                >
+                  <option value="Employee">Employee</option>
+                  <option value="Admin">Admin</option>
+                </select>
+              </div>
 
-            <!-- Success or Error Message -->
-            <p *ngIf="successMessage" class="text-success text-center mt-3 fw-semibold">
-              {{ successMessage }}
-            </p>
-            <p *ngIf="errorMessage" class="text-danger text-center mt-3 fw-semibold">
-              {{ errorMessage }}
-            </p>
-          </form>
+              <!-- Submit Button -->
+              <div class="text-center text-lg-start mt-4 pt-2">
+                <button
+                  type="submit"
+                  class="btn btn-primary btn-sm w-100"
+                  [disabled]="registerForm.invalid"
+                  style="padding-left: 2.5rem; padding-right: 2.5rem;"
+                >
+                  Register
+                </button>
+              </div>
+
+              <!-- Success or Error Message -->
+              <p *ngIf="successMessage" class="text-success text-center mt-3 fw-semibold">
+                {{ successMessage }}
+              </p>
+              <p *ngIf="errorMessage" class="text-danger text-center mt-3 fw-semibold">
+                {{ errorMessage }}
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+</div>
+
+<!-- CSS Styling -->
+<style>
+  /* Navbar styles */
+  .navbar {
+    padding: 0.3rem 1rem;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar .nav-link {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .navbar .nav-link:hover {
+    background-color: #444;
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  /* Active link styling */
+  .navbar .nav-item .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  /* Content section gap */
+  .content-section {
+    margin-top: 80px;
+  }
+</style>

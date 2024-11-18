@@ -5,7 +5,7 @@
 namespace GrowthPath.FeedbackAPI.Migrations
 {
     /// <inheritdoc />
-    public partial class initialprocess : Migration
+    public partial class collect : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

@@ -1,10 +1,10 @@
 <div class="admin-container">
   <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
     <div class="container-fluid">
       <!-- Logo before Admin text -->
       <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="growth.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'mylogo.png' with your logo image -->
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'growth.png' with your logo image -->
         Admin
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,72 +13,200 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a routerLink="/app-dashboard" class="btn btn-light">Home</a>
+            <a routerLink="/app-dashboard" routerLinkActive="active">Home</a>
           </li>
           <li class="nav-item me-3">
-            <a routerLink="/app-add-course" class="btn btn-light">Add Course</a>
+            <a routerLink="/app-add-course" routerLinkActive="active">Add Course</a>
           </li>
           <li class="nav-item">
-            <a href="https://api.coursera.org/api/courses.v1" class="btn btn-light me-2">Recommended Courses</a>
+            <a routerLink="/app-recommended-course" routerLinkActive="active">Recommended Courses</a>
           </li>
           <li class="nav-item">
-            <a routerLink="/profile" class="btn btn-light">Profile</a>
+            <a routerLink="/app-profile" routerLinkActive="active">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-user-feedback" routerLinkActive="active">Get Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home-page" routerLinkActive="active">Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-<router-outlet></router-outlet>
-<!-- Centered Form Container for Assign Course -->
-<div class="centered-container">
-  <div class="form-container shadow-lg rounded-4 p-4">
-    <h2 class="text-center mb-3 text-dark fw-bold">Assign Course to Employee</h2>
 
-    <!-- Display message after assignment -->
-    <div *ngIf="message" class="alert alert-success mt-3" role="alert">
-      {{ message }}
+  <router-outlet></router-outlet>
+
+  <!-- Centered Form Container for Assign Course -->
+  <div class="centered-container">
+    <div class="form-container shadow-lg rounded-4 p-4">
+      <h2 class="text-center mb-3 text-dark fw-bold">Assign Course to Employee</h2>
+
+      <!-- Display message after assignment -->
+      <div *ngIf="message" class="alert alert-success mt-3" role="alert">
+        {{ message }}
+      </div>
+
+      <form (ngSubmit)="assignCourse()" #assignForm="ngForm" novalidate>
+        <!-- Select Course -->
+        <div class="form-group mb-3">
+          <label for="courseSelect" class="form-label fw-semibold">Select Course:</label>
+          <select 
+            id="courseSelect" 
+            name="courseSelect" 
+            class="form-control border-dark rounded-3 shadow-sm" 
+            [(ngModel)]="selectedCourseId" 
+            required>
+            <option *ngFor="let course of courses" [value]="course.courseId">
+              {{ course.title }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Select Employee -->
+        <div class="form-group mb-3">
+          <label for="employeeSelect" class="form-label fw-semibold">Select Employee:</label>
+          <select 
+            id="employeeSelect" 
+            name="employeeSelect" 
+            class="form-control border-dark rounded-3 shadow-sm" 
+            [(ngModel)]="selectedEmployeeId" 
+            required>
+            <option *ngFor="let employee of employees" [value]="employee.id">
+              {{ employee.userName }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+          <button 
+            type="submit" 
+            class="btn btn-dark btn-lg px-5 shadow-sm fw-semibold active-btn" 
+            [disabled]="!assignForm.valid">
+            Assign Course
+          </button>
+        </div>
+      </form>
     </div>
-
-    <form (ngSubmit)="assignCourse()" #assignForm="ngForm" novalidate>
-      <!-- Select Course -->
-      <div class="form-group mb-3">
-        <label for="courseSelect" class="form-label fw-semibold">Select Course:</label>
-        <select 
-          id="courseSelect" 
-          name="courseSelect" 
-          class="form-control border-dark rounded-3 shadow-sm" 
-          [(ngModel)]="selectedCourseId" 
-          required>
-          <option *ngFor="let course of courses" [value]="course.courseId">
-            {{ course.title }}
-          </option>
-        </select>
-      </div>
-
-      <!-- Select Employee -->
-      <div class="form-group mb-3">
-        <label for="employeeSelect" class="form-label fw-semibold">Select Employee:</label>
-        <select 
-          id="employeeSelect" 
-          name="employeeSelect" 
-          class="form-control border-dark rounded-3 shadow-sm" 
-          [(ngModel)]="selectedEmployeeId" 
-          required>
-          <option *ngFor="let employee of employees" [value]="employee.id">
-            {{ employee.userName }}
-          </option>
-        </select>
-      </div>
-
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button 
-          type="submit" 
-          class="btn btn-dark btn-lg px-5 shadow-sm fw-semibold active-btn" 
-          [disabled]="!assignForm.valid">
-          Assign Course
-        </button>
-      </div>
-    </form>
   </div>
 </div>
+
+<!-- CSS Styling -->
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #e9ecef;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+  }
+
+  .navbar {
+    z-index: 1000; /* Ensure navbar stays on top */
+    top: 0;
+  }
+
+  /* Remove underline, set text color to white, and add hover effects */
+  .navbar-nav .nav-item a {
+    text-decoration: none; /* Remove underline */
+    color: #fff; /* Set text color to white */
+    padding: 8px 20px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect */
+  .navbar-nav .nav-item a:hover,
+  .navbar-nav .nav-item a:focus {
+    background-color: #7c7b7b;
+    border-color: #000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+  }
+
+  /* Active link effect */
+  .navbar-nav .nav-item a:active {
+    background-color: #1d1c1c;
+    border-color: #0f0f0f;
+    transform: translateY(2px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* For active link styling */
+  .navbar-nav .nav-item .active {
+    background-color: #181717;
+    border-color: #0c0c0c;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Center content vertically and horizontally */
+  .centered-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    background-color: #f8f9fa;
+    padding-top: 150px; /* Adjust the gap from the navbar */
+  }
+
+  .form-container {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .form-label {
+    color: #343a40;
+    font-size: 14px;
+  }
+
+  .form-control {
+    font-size: 14px;
+    padding: 8px 12px;
+    border: 2px solid #343a40;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #000;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  }
+
+  .alert-success {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+  }
+
+  .btn-dark {
+    background-color: #0f0f0f;
+    border-color: #0c0c0c;
+    transition: all 0.3s ease;
+  }
+
+  .btn-dark:hover {
+    background-color: #0c0c0c;
+    border-color: #000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    transform: scale(1.02);
+  }
+
+  .btn-dark:active {
+    background-color: #080808;
+    border-color: #0f0f0f;
+    transform: translateY(2px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .active-btn {
+    cursor: pointer;
+  }
+</style>

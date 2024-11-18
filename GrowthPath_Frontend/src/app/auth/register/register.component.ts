@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 
 
-import { Router } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 import { CommonModule } from '@angular/common';
 
@@ -16,7 +16,7 @@ import { AuthService } from '../../service/auth.service';
 
  standalone: true,
 
- imports: [CommonModule,FormsModule],
+ imports: [CommonModule,FormsModule,RouterOutlet,RouterLink],
 
  templateUrl: './register.component.html',
 

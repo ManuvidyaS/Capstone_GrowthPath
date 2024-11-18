@@ -1,117 +1,153 @@
 <div class="user-container">
-    <!-- Navbar Section -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container-fluid">
-        <!-- Logo before User text -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
-          <img src="growth.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'mylogo.png' with your logo image -->
-          <h2 class="mb-0">User</h2>
-        </a>
-  
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- Logo before User text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
+        User
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <!-- Recommended Courses Link -->
-          <li class="nav-item">
-            <a href="https://api.coursera.org/api/courses.v1" class="btn btn-outline-light me-2">Recommended Courses</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
           </li>
-          <li class="nav-item">
-            <a routerLink="/get-assigned-course" class="btn btn-outline-light me-2">Courses</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
           </li>
           <!-- Feedback Link -->
-          <li class="nav-item">
-            <a routerLink="/feedback" class="btn btn-outline-light">Feedback</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/feedback" class="nav-link">Feedback</a>
           </li>
-  
           <!-- Profile Link -->
-          <li class="nav-item">
-            <a routerLink="/profile" class="btn btn-outline-light">Profile</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
           </li>
         </ul>
       </div>
-    </nav>
-  
-    <div class="main-content mt-4 d-flex flex-column align-items-center">
-      <!-- Course Cards Section -->
-      <div class="course-cards container">
-        <div class="row justify-content-center">
-          <!-- Card 1 -->
-          <div class="col-md-3 mb-4">
-            <div class="course-card card h-100 text-center">
-              <img src="c3.jpg" class="card-img-top" alt="Course Image 1">
-              <div class="card-body">
-                <h5 class="card-title">C++</h5>
-                <p class="card-text">Description of Course 1</p>
-              </div>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <div class="main-content mt-5 pt-5 d-flex flex-column align-items-center">
+    <!-- Course Cards Section -->
+    <div class="course-cards container">
+      <div class="row justify-content-center">
+        <!-- Card 1 -->
+        <div class="col-md-3 mb-4">
+          <div class="course-card card h-100 text-center">
+            <img src="c3.jpg" class="card-img-top" alt="Course Image 1">
+            <div class="card-body">
+              <h5 class="card-title">C++</h5>
+              <p class="card-text">Dive into the world of C++ programming! Learn the foundations of object-oriented programming, efficient memory management, and advanced topics like data structures and algorithms. Ideal for aspiring software developers and competitive programmers.</p>
             </div>
           </div>
-          <!-- Card 2 -->
-          <div class="col-md-3 mb-4">
-            <div class="course-card card h-100 text-center">
-              <img src="c4.jpg" class="card-img-top" alt="Course Image 2">
-              <div class="card-body">
-                <h5 class="card-title">Azure</h5>
-                <p class="card-text">Description of Course 2</p>
-              </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="col-md-3 mb-4">
+          <div class="course-card card h-100 text-center">
+            <img src="c4.jpg" class="card-img-top" alt="Course Image 2">
+            <div class="card-body">
+              <h5 class="card-title">Azure</h5>
+              <p class="card-text">Master the basics of Microsoft Azure, including cloud concepts, services, and deployment. This course is perfect for beginners looking to build cloud solutions and advance their career in cloud computing.</p>
             </div>
           </div>
-          <!-- Card 3 -->
-          <div class="col-md-3 mb-4">
-            <div class="course-card card h-100 text-center">
-              <img src="c5.jpg" class="card-img-top" alt="Course Image 3">
-              <div class="card-body">
-                <h5 class="card-title">FullStack</h5>
-                <p class="card-text">Description of Course 3</p>
-              </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="col-md-3 mb-4">
+          <div class="course-card card h-100 text-center">
+            <img src="c5.jpg" class="card-img-top" alt="Course Image 3">
+            <div class="card-body">
+              <h5 class="card-title">FullStack</h5>
+              <p class="card-text">Become a versatile developer with this comprehensive course covering frontend, backend, and database development. Gain hands-on experience with popular tools and frameworks to build modern, dynamic web applications.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  
-  <!-- CSS Styling -->
-  <style>
-    /* Navbar styles */
-    .navbar {
-      background-color: #343a40;
-    }
-  
-    .navbar-brand {
-      color: #fff;
-      font-size: 1.25rem;
-    }
-  
-    .btn-outline-light {
-      font-size: 0.9rem;
-    }
-  
-    /* Course card styling */
-    .course-card {
-      border: 1px solid #ddd;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-  
-    .course-card .card-title {
-      font-size: 1rem;
-      font-weight: bold;
-    }
-  
-    .course-card .card-text {
-      font-size: 0.9rem;
-      color: #555;
-    }
-  
-    .main-content {
-      margin-top: 80px; /* Space for fixed navbar */
-    }
-  
-    .container {
-      max-width: 1200px;
-    }
-  
-    /* Logo Styling */
-    .navbar-brand .logo {
-      width: 40px;
-      height: 40px;
-    }
-  </style>
-  
+</div>
+
+<!-- CSS Styling -->
+<style>
+  /* Navbar styles */
+  .navbar {
+    background-color: #343a40;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 0.3rem 0.8rem; /* Reduced padding */
+    font-size: 0.8rem; /* Smaller font size */
+    height: auto;
+  }
+
+  .navbar-brand {
+    color: #fff;
+    font-size: 0.9rem; /* Reduced brand size */
+  }
+
+  .navbar-nav .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 5px 8px; /* Reduced padding for links */
+    font-size: 13px; /* Reduced font size for links */
+    transition: all 0.3s ease;
+  }
+
+  /* Hover Effect */
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus {
+    background-color: #444;
+    color: #fff;
+    transform: scale(1.03);
+  }
+
+  /* Active Link Styling */
+  .navbar-nav .nav-item .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  /* Main content adjustment for fixed navbar */
+  .main-content {
+    margin-top: 100px; /* Adjusted for the smaller navbar */
+  }
+
+  /* Course card styling */
+  .course-card {
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  .course-card .card-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .course-card .card-text {
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  /* Logo Styling */
+  .navbar-brand .logo {
+    width: 25px; /* Smaller logo size */
+    height: 25px;
+  }
+</style>

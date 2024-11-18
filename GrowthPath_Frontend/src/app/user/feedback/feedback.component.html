@@ -1,86 +1,183 @@
-<div class="container mt-5">
-    <h2 class="text-center mb-4">Feedback</h2>
-    
-    <form (ngSubmit)="onSubmitFeedback()" #feedbackForm="ngForm" novalidate>
-      
-      <!-- Course ID Field -->
-      <div class="form-floating mb-3">
-        <input 
-          type="number" 
-          class="form-control" 
-          id="courseId" 
-          [(ngModel)]="courseId" 
-          name="courseId" 
-          placeholder="Course ID" 
-          required 
-          #courseIdField="ngModel" 
-          [class.is-invalid]="courseIdField.invalid && courseIdField.touched" />
-        <label for="courseId">Course ID</label>
-        <div class="invalid-feedback">
-          Please enter a valid Course ID.
-        </div>
-      </div>
-  
-      <!-- User ID Field -->
-      <div class="form-floating mb-3">
-        <input 
-          type="number" 
-          class="form-control" 
-          id="userId" 
-          [(ngModel)]="userId" 
-          name="userId" 
-          placeholder="User ID" 
-          required 
-          #userIdField="ngModel" 
-          [class.is-invalid]="userIdField.invalid && userIdField.touched" />
-        <label for="userId">User ID</label>
-        <div class="invalid-feedback">
-          Please enter a valid User ID.
-        </div>
-      </div>
-  
-      <!-- Rating Field -->
-      <div class="form-floating mb-3">
-        <input 
-          type="number" 
-          class="form-control" 
-          id="rating" 
-          [(ngModel)]="rating" 
-          name="rating" 
-          placeholder="Rating (1-10)" 
-          min="1" 
-          max="10" 
-          required 
-          #ratingField="ngModel" 
-          [class.is-invalid]="ratingField.invalid && ratingField.touched" />
-        <label for="rating">Rating (1-10)</label>
-        <div class="invalid-feedback">
-          Rating must be between 1 and 10.
-        </div>
-      </div>
-  
-      <!-- Suggestion Field -->
-      <div class="form-floating mb-3">
-        <textarea 
-          class="form-control" 
-          id="suggestion" 
-          [(ngModel)]="suggestion" 
-          name="suggestion" 
-          placeholder="Suggestion" 
-          rows="4" 
-          required 
-          #suggestionField="ngModel" 
-          [class.is-invalid]="suggestionField.invalid && suggestionField.touched"></textarea>
-        <label for="suggestion">Suggestion</label>
-        <div class="invalid-feedback">
-          Please provide a suggestion.
-        </div>
-      </div>
-  
-      <!-- Submit Button -->
-      <button type="submit" class="btn btn-primary w-100" [disabled]="feedbackForm.invalid">
-        Submit Feedback
+<div class="user-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- Logo and Title -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
+        User
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-    </form>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a routerLink="/app-layout" routerLinkActive="active" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-recommend-course" routerLinkActive="active" class="nav-link">Recommended Courses</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/get-assigned-course" routerLinkActive="active" class="nav-link">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/feedback" routerLinkActive="active" class="nav-link">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-layout/app-userprofile" routerLinkActive="active" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home-page" routerLinkActive="active" class="nav-link">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <!-- Feedback Section -->
+  <div class="container mt-5 pt-5">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h2 class="text-center mb-4">Feedback</h2>
+        <form (ngSubmit)="onSubmitFeedback()" #feedbackForm="ngForm" novalidate>
+          <!-- Course ID Field -->
+          <div class="form-floating mb-3">
+            <input 
+              type="number" 
+              class="form-control" 
+              id="courseId" 
+              [(ngModel)]="courseId" 
+              name="courseId" 
+              placeholder="Course ID" 
+              required 
+              #courseIdField="ngModel" 
+              [class.is-invalid]="courseIdField.invalid && courseIdField.touched" />
+            <label for="courseId">Course ID</label>
+            <div class="invalid-feedback">
+              Please enter a valid Course ID.
+            </div>
+          </div>
+
+          <!-- User ID Field -->
+          <div class="form-floating mb-3">
+            <input 
+              type="number" 
+              class="form-control" 
+              id="userId" 
+              [(ngModel)]="userId" 
+              name="userId" 
+              placeholder="User ID" 
+              required 
+              #userIdField="ngModel" 
+              [class.is-invalid]="userIdField.invalid && userIdField.touched" />
+            <label for="userId">User ID</label>
+            <div class="invalid-feedback">
+              Please enter a valid User ID.
+            </div>
+          </div>
+
+          <!-- Rating Field -->
+          <div class="form-floating mb-3">
+            <input 
+              type="number" 
+              class="form-control" 
+              id="rating" 
+              [(ngModel)]="rating" 
+              name="rating" 
+              placeholder="Rating (1-10)" 
+              min="1" 
+              max="10" 
+              required 
+              #ratingField="ngModel" 
+              [class.is-invalid]="ratingField.invalid && ratingField.touched" />
+            <label for="rating">Rating (1-10)</label>
+            <div class="invalid-feedback">
+              Rating must be between 1 and 10.
+            </div>
+          </div>
+
+          <!-- Suggestion Field -->
+          <div class="form-floating mb-3">
+            <textarea 
+              class="form-control" 
+              id="suggestion" 
+              [(ngModel)]="suggestion" 
+              name="suggestion" 
+              placeholder="Suggestion" 
+              rows="4" 
+              required 
+              #suggestionField="ngModel" 
+              [class.is-invalid]="suggestionField.invalid && suggestionField.touched"></textarea>
+            <label for="suggestion">Suggestion</label>
+            <div class="invalid-feedback">
+              Please provide a suggestion.
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" class="btn btn-primary w-100" [disabled]="feedbackForm.invalid">
+            Submit Feedback
+          </button>
+        </form>
+      </div>
+    </div>
   </div>
-  
+</div>
+
+<!-- CSS Styling -->
+<style>
+  /* Navbar styles */
+  .navbar {
+    background-color: #343a40;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .navbar-brand {
+    color: #fff;
+    font-size: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    text-decoration: none;
+    color: white;
+    padding: 8px 10px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #ccc;
+  }
+
+  .navbar-nav .active {
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Card styling */
+  .card {
+    margin-top: 20px;
+    border-radius: 8px;
+    border: none;
+  }
+
+  .card-body {
+    padding: 2rem;
+  }
+
+  /* Main content spacing */
+  .container {
+    margin-top: 100px; /* Ensures content starts below the navbar */
+  }
+</style>

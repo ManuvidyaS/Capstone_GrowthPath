@@ -6,7 +6,7 @@ import { AuthService } from '../../service/auth.service';
 
 import { CommonModule } from '@angular/common';
 
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { RouterLink } from '@angular/router';
 
  standalone: true,
 
- imports: [CommonModule,RouterLink],
+ imports: [CommonModule,RouterLink,RouterOutlet],
 
  templateUrl: './get-assigned-course.component.html',
 

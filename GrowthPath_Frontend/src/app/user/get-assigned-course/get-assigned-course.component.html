@@ -1,58 +1,175 @@
-<div *ngIf="loading" class="loading">
-
-    Loading courses...
- 
-  </div>
- 
- 
-  <div *ngIf="!loading && errorMessage" class="error">
- 
-    {{ errorMessage }}
- 
-  </div>
- 
- 
-  <div *ngIf="!loading && assignedCourses.length > 0" class="course-grid">
- 
-    <div class="course-card" *ngFor="let course of assignedCourses">
- 
-    <h3>{{ course.courseName }}</h3>
- 
-      <p><strong>Course ID:</strong> {{ course.courseId }}</p>
- 
-      <p><strong>Assigned Date:</strong> {{ course.assignedDate | date }}</p>
- 
-      <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
- 
-      <p><strong>Modules:</strong> {{ course.modulesCompleted }} / {{ course.totalModules }}</p>
- 
-      <div class="progress-container">
- 
-        <div class="progress-bar" [style.width]="course.progress + '%'"></div>
- 
+<div class="user-container">
+  <!-- Navbar Section -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <!-- Logo before User text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
+        User
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-layout" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/feedback" class="nav-link">Feedback</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
+          </li>
+        </ul>
       </div>
- 
-      <p><strong>Progress:</strong> {{ course.progress }}%</p>
- 
-      <button 
- 
-  [ngClass]="{ 'enrolled': course.progress > 0 }" 
- 
-  [routerLink]="['/update-course']"
- 
- >
- 
-  {{ course.progress > 0 ? 'Resume' : 'Enroll' }}
- 
- </button>
- 
     </div>
- 
+  </nav>
+
+  <!-- Content Section -->
+  <div class="content-container mt-5 pt-5">
+    <div *ngIf="loading" class="loading">
+      Loading courses...
+    </div>
+    <div *ngIf="!loading && errorMessage" class="error">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="!loading && assignedCourses.length > 0" class="course-grid">
+      <div class="course-card" *ngFor="let course of assignedCourses">
+        <h3>{{ course.courseName }}</h3>
+        <p><strong>Course ID:</strong> {{ course.courseId }}</p>
+        <p><strong>Assigned Date:</strong> {{ course.assignedDate | date }}</p>
+        <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
+        <p><strong>Modules:</strong> {{ course.modulesCompleted }} / {{ course.totalModules }}</p>
+        <div class="progress-container">
+          <div class="progress-bar" [style.width]="course.progress + '%'"></div>
+        </div>
+        <p><strong>Progress:</strong> {{ course.progress }}%</p>
+        <a [routerLink]="['/update-course']" class="progress-link" 
+           [ngClass]="{ 'enrolled': course.progress > 0 }">
+          {{ course.progress > 0 ? 'Resume' : 'Enroll' }}
+        </a>
+      </div>
+    </div>
+    <div *ngIf="!loading && assignedCourses.length === 0" class="no-courses">
+      No assigned courses found.
+    </div>
   </div>
- 
- 
-  <div *ngIf="!loading && assignedCourses.length === 0" class="no-courses">
- 
-    No assigned courses found.
- 
-  </div>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- CSS Styling -->
+<style>
+/* Fixed Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #000 !important;
+  padding: 0.3rem 1rem; /* Reduced padding */
+  height: 50px; /* Smaller height */
+  font-size: 0.9rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+  width: 30px;
+  height: 30px;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+  padding: 8px 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.navbar-nav .active {
+  border-bottom: 2px solid #fff;
+}
+
+/* Content Styling */
+.content-container {
+  margin-top: 70px; /* Adjust for fixed navbar */
+  padding: 20px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.course-card {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.course-card h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.course-card p {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.progress-container {
+  width: 100%;
+  background-color: #e9ecef;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.progress-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 14px;
+  padding: 8px 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.progress-link:hover {
+  background-color: #0056b3;
+}
+
+.no-courses {
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+  margin-top: 20px;
+}
+</style>

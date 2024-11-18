@@ -1,10 +1,10 @@
 <div class="admin-container">
   <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top">
     <div class="container-fluid">
       <!-- Logo before Admin text -->
       <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="growth.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'mylogo.png' with your logo image -->
+        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'mylogo.png' with your logo image -->
         Admin
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -12,35 +12,118 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a routerLink="/app-dashboard" class="btn btn-light">Home</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-dashboard" class="nav-link">Home</a>
           </li>
-          <li class="nav-item me-3">
-            <a routerLink="/app-add-course" class="btn btn-light">Add Course</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-add-course" class="nav-link">Add Course</a>
           </li>
-          <li class="nav-item">
-            <a href="https://api.coursera.org/api/courses.v1" class="btn btn-light me-2">Recommended Courses</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-recommended-course" class="nav-link">Recommended Courses</a>
           </li>
-          <li class="nav-item">
-            <a routerLink="/profile" class="btn btn-light">Profile</a>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-profile" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/app-user-feedback" class="nav-link">Get Feedback</a>
+          </li>
+          <li class="nav-item" routerLinkActive="active">
+            <a routerLink="/home-page" class="nav-link">Logout</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-<router-outlet></router-outlet>
 
-<div class="course-list">
-    <h2>Available Courses</h2>
-    <ul *ngIf="courses.length > 0; else noCourses">
-      <li *ngFor="let course of courses">
-        <h3>{{ course.title }}</h3>
-        <p>{{ course.description }}</p>
-        <p><strong>End Date:</strong> {{ course.endDate | date }}</p>
-      </li>
-    </ul>
+  <router-outlet></router-outlet>
+
+  <!-- Courses Section -->
+  <div class="course-list container mt-5 pt-5"> <!-- Added pt-5 for additional padding-top -->
+    <h2 class="text-center">Available Courses</h2>
+    <table class="table table-bordered table-striped mt-4" *ngIf="courses.length > 0; else noCourses">
+      <thead class="thead-dark">
+        <tr>
+          <th>Course Title</th>
+          <th>Description</th>
+          <th>End Date</th>
+          <th>No Of Modules</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let course of courses">
+          <td>{{ course.title }}</td>
+          <td>{{ course.description }}</td>
+          <td>{{ course.endDate | date }}</td>
+          <td>{{course.totalModules}}</td>
+          <td>
+            <a href="/app-put-course" class="btn btn-warning btn-sm me-2">Update</a>
+            <a href="/app-deletecourse" class="btn btn-danger btn-sm me-2">Delete</a>
+            <a href="/app-dashboard/app-assign-course" class="btn btn-dark btn-sm me-2">Assign</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     <ng-template #noCourses>
-      <p>No courses available at the moment.</p>
+      <p class="text-center mt-4">No courses available at the moment.</p>
     </ng-template>
   </div>
-  
+</div>
+
+<!-- CSS Styling -->
+<style>
+  .admin-container {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .navbar {
+    background-color: #000 !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  /* Navbar links */
+  .navbar-nav .nav-item .nav-link {
+    text-decoration: none; /* Remove underline */
+    color: white; /* Set text color to white */
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover effect */
+  .navbar-nav .nav-item .nav-link:hover,
+  .navbar-nav .nav-item .nav-link:focus {
+    background-color: #444;
+    color: #fff;
+    text-decoration: none;
+    transform: scale(1.05);
+  }
+
+  /* Active link effect */
+  .navbar-nav .nav-item .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  /* Table styling */
+  .table {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin-top: 40px; /* Adjusted margin-top to give space from navbar */
+  }
+
+  .thead-dark th {
+    background-color: #343a40;
+    color: white;
+  }
+
+  .btn-sm {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.5rem;
+  }
+</style>

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CourseService } from '../../service/course.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Course } from '../Models/Course';
@@ -8,7 +8,7 @@ import { Course } from '../Models/Course';
 @Component({
   selector: 'app-put-course',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [FormsModule,CommonModule,RouterOutlet,RouterLink],
   templateUrl: './put-course.component.html',
   styleUrl: './put-course.component.css'
 })

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GrowthPath.FeedbackAPI.Migrations
 {
     [DbContext(typeof(FeedbackDbContext))]
-    [Migration("20241111040738_initialprocess")]
-    partial class initialprocess
+    [Migration("20241117120824_collect")]
+    partial class collect
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

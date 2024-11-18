@@ -1,13 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+      <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
+    </a>
+    
+    <a class="navbar-brand" href="#">GROWTHPATH</a>
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/login" class="nav-link">Login</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/home-page" class="nav-link">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
 <section class="vh-100 d-flex justify-content-center align-items-center">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center">
       <!-- Image Section (Large as before) -->
       <div class="col-md-9 col-lg-6 col-xl-5">
-        <img
-          src="growth.png"
-          class="img-fluid"
-          alt="Sample image"
-        />
+        <img src="growth.png" class="img-fluid" alt="Sample image" />
       </div>
 
       <!-- Form Section (Medium Size) -->
@@ -71,3 +95,84 @@
     </div>
   </div>
 </section>
+
+<style>
+  /* Reset body margin */
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* Navbar styling */
+  .navbar {
+    background-color: #1c1b1d !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  /* Navbar Links */
+  .navbar-nav .nav-item .nav-link {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* White text color */
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+  }
+
+  /* Hover Effect */
+  .navbar-nav .nav-item .nav-link:hover,
+  .navbar-nav .nav-item .nav-link:focus {
+    background-color: #444; /* Change background on hover */
+    color: #fff;
+    transform: scale(1.05); /* Slight zoom */
+    text-decoration: none; /* Ensure no underline on hover */
+  }
+
+  /* Active Link Styling */
+  .navbar-nav .nav-item .active {
+    background-color: #222;
+    color: #fff;
+  }
+
+  /* Hero Section Styling */
+  .hero-section {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* Adjusted to half viewport height */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixes the image in place */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Background images for each section */
+  #section1 {
+    background-image: url('Designer (1).jpeg');
+  }
+
+  #section2 {
+    background-image: url('Designer (1).jpeg');
+  }
+
+  /* Hero text styling */
+  .hero-text {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+    margin: 0;
+  }
+
+  .hero-text p {
+    font-size: 1.2rem;
+  }
+</style>

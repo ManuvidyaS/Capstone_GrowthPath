@@ -1,0 +1,124 @@
+<div class="user-container">
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container-fluid">
+        <!-- Logo and User Text -->
+        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+            <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
+            User
+          </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-layout" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/feedback" class="nav-link">Feedback</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+              <a routerLink="/home-page" class="nav-link">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Content Section -->
+    <div class="content-container mt-5 pt-5">
+      <div class="card">
+        <div class="card-body">
+          <div class="profile-header" *ngIf="userData">
+            <div class="profile-info">
+              <h3>{{ userData.name }}</h3>
+              <p><strong>ID:</strong> {{ userData.id }}</p>
+              <p><strong>Email:</strong> {{ userData.email }}</p>
+              <p><strong>Role:</strong> {{ userData.role }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+  
+  <!-- CSS Styling -->
+  <style>
+  /* Navbar Styles */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: #000 !important;
+    padding: 0.3rem 1rem;
+    height: 50px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .navbar-nav .nav-link {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ddd;
+    text-decoration: none;
+  }
+  
+  .navbar-nav .active {
+    border-bottom: 2px solid #fff;
+  }
+  
+  /* Content Styling */
+  .content-container {
+    margin-top: 70px;
+    padding: 20px;
+  }
+  
+  .card {
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #f8f9fa;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .profile-info {
+    font-size: 1rem;
+  }
+  
+  h3 {
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+  </style>
+  
