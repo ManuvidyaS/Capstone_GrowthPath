@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { CourseService } from '../../service/course.service';
+import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 //add the dto connection to the fronted component
 
 export interface ResponseDTO {
@@ -14,7 +15,7 @@ export interface ResponseDTO {
 @Component({
   selector: 'app-add-course',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterOutlet,DashboardComponent,RouterLink],
+  imports: [CommonModule, FormsModule, RouterOutlet, DashboardComponent, RouterLink, NavBarAdminComponent],
   templateUrl: './add-course.component.html',
   styleUrl: './add-course.component.css'
 })

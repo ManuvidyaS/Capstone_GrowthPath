@@ -1,42 +1,9 @@
 <div class="admin-container">
-  <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top py-2">
-    <div class="container-fluid">
-      <!-- Logo before Admin text -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;"> <!-- Replace 'growth.png' with your logo image -->
-        Admin
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a routerLink="/app-dashboard" routerLinkActive="active" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item me-3">
-            <a routerLink="/app-add-course" routerLinkActive="active" class="nav-link">Add Course</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-recommended-course" routerLinkActive="active" class="nav-link me-2">Recommended Courses</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-profile" routerLinkActive="active" class="nav-link">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-user-feedback" routerLinkActive="active" class="nav-link">Get Feedback</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/home-page" routerLinkActive="active" class="nav-link">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <app-nav-bar-admin></app-nav-bar-admin>
   <router-outlet></router-outlet>
 
   <!-- Centered Form Container -->
+  <div class="page-wrapper">
   <div class="centered-container">
     <div class="form-container shadow-lg rounded-4 p-4">
       <h2 class="text-center mb-3 text-dark fw-bold">Add New Course</h2>
@@ -103,115 +70,144 @@
   </div>
   <router-outlet></router-outlet>
 </div>
+</div>
 
 <!-- CSS Styling -->
 <style>
   body {
-    margin: 0;
-    padding: 0;
-    background-color: #e9ecef; /* Light gray background */
-    font-family: 'Roboto', sans-serif;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(120deg, #6a11cb, #4b4a67); /* Vibrant gradient background */
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+}
+.admin-container{
+  background-color: #4b4a67;
+}
+.navbar {
+  background: linear-gradient(90deg, #3f5efb, #4b4a67); /* Colorful navbar gradient */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
 
-  .navbar {
-    background-color: #000 !important;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
+.navbar-nav .nav-item {
+  padding-left: 0px;
+  padding-right: 10px;
+}
 
-  .navbar-nav .nav-item {
-    padding-left: 0px;
-    padding-right: 10px;
-  }
+.navbar-toggler {
+  border-color: #ffffff;
+}
 
-  .navbar-toggler {
-    border-color: #fff;
-  }
+.nav-link {
+  color: #ffffff !important;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
 
-  .nav-link {
-    color: #fff !important;
-    text-decoration: none;
-    padding: 10px;
-    font-size: 16px;
-  }
+.nav-link:hover, .nav-link.active {
+  color: #442f38 !important; /* Bright hover color */
+  text-decoration: none;
+  font-weight: bold;
+}
 
-  .nav-link:hover, .nav-link.active {
-    color: #ddd !important;
-    text-decoration: none;
-    font-weight: bold;
-  }
+.nav-link.active {
+  border-bottom: 2px solid #fc466b;
+}
 
-  .nav-link.active {
-    border-bottom: 2px solid #fff;
-  }
+.nav-link:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fc466b;
+}
 
-  .nav-link:focus {
-    outline: none;
-    background-color: #7c7b7b;
-    border-color: #000;
-  }
+.centered-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.2); /* Slight overlay on gradient */
+  padding-top: 110px; /* Adjust for fixed navbar */
+}
+.page-wrapper {
+  margin-top: 34px; /* Adjust for navbar height */
+  background: linear-gradient(120deg, #fdfbfb, #E9E4E0); /* Light background gradient */
+  min-height: calc(100vh - 60px); /* Subtract navbar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-  .centered-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f8f9fa; /* Slightly lighter background */
-    padding-top: 110px; /* Adjust for fixed navbar */
-  }
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background: #ffffff; /* Clean white form background */
+  border: 1px solid #e3e3e3;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+  transform: scale(0.95);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .form-container {
-    width: 100%;
-    max-width: 400px;
-    background: #fff; /* White form background */
-    border: 1px solid #dee2e6;
-    border-radius: 16px;
-    padding: 20px;
-  }
+.form-container:hover {
+  transform: scale(1);
+  box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+}
 
-  .form-label {
-    color: #343a40;
-    font-size: 14px;
-  }
+.form-label {
+  color: #6c757d;
+  font-size: 16px;
+  font-weight: 500;
+}
 
-  .form-control {
-    font-size: 14px;
-    padding: 8px 12px;
-    border: 2px solid #343a40;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.form-control {
+  font-size: 14px;
+  padding: 10px 12px;
+  border: 2px solid #ced4da;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .form-control:focus {
-    outline: none;
-    border-color: #000;
-    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
-  }
+.form-control:focus {
+  outline: none;
+  border-color: #3f5efb; /* Match gradient */
+  box-shadow: 0px 0px 6px rgba(63, 94, 251, 0.5);
+}
 
-  .btn-dark {
-    background-color: #0f0f0f;
-    border-color: #0c0c0c;
-    transition: all 0.3s ease;
-  }
+.btn-dark {
+  background: linear-gradient(90deg, #4b4a67, #3f5efb); /* Gradient button */
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .btn-dark:hover {
-    background-color: #000;
-    border-color: #000;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
-    transform: scale(1.02);
-  }
+.btn-dark:hover {
+  background: linear-gradient(90deg, #3f5efb, #fc466b); /* Reverse gradient */
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+}
 
-  .btn-dark:active {
-    background-color: #080808;
-    border-color: #0f0f0f;
-    transform: translateY(2px);
-    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
-  }
+.btn-dark:active {
+  background: #2575fc;
+  transform: translateY(2px);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
 </style>

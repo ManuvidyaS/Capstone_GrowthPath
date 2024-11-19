@@ -1,39 +1,5 @@
 <div class="user-container">
-    <!-- Navbar Section -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-      <div class="container-fluid">
-        <!-- Logo before User text -->
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-            <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
-            User
-          </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/app-layout" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/feedback" class="nav-link">Feedback</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-              <a routerLink="/home-page" class="nav-link">Logout</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
+  <app-nav-bar></app-nav-bar>
   
     <!-- Content Section -->
     <router-outlet></router-outlet>
@@ -50,104 +16,59 @@
   <!-- CSS Styling -->
   <style>
   /* Fixed Navbar */
-  .navbar {
-    background-color: #000 !important;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0.3rem 1rem; /* Reduced padding */
-    font-size: 0.85rem; /* Smaller font size */
-    height: 50px; /* Smaller height */
-    line-height: 1.2; /* Adjust for text alignment */
-  }
   
-  /* Navbar Logo and Title */
-  .navbar-brand {
-    font-size: 0.9rem;
-  }
-  
-  .navbar-brand img {
-    height: 24px;
-    width: 24px;
-  }
-  
-  /* Navbar Links */
-  .navbar-nav .nav-item .nav-link {
-    text-decoration: none;
-    color: white;
-    padding: 8px 12px;
-    font-size: 14px;
-    transition: all 0.3s ease;
-  }
-  
-  /* Hover Effect */
-  .navbar-nav .nav-item .nav-link:hover,
-  .navbar-nav .nav-item .nav-link:focus {
-    background-color: #444;
-    color: #fff;
-    transform: scale(1.05);
-  }
-  
-  /* Active Link Styling */
-  .navbar-nav .nav-item .active {
-    background-color: #222;
-    color: #fff;
-  }
   
   /* Course Container Styling */
   .course-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    margin-top: 70px; /* Adjust for fixed navbar */
-  }
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 80px; /* Adjust for fixed navbar */
+    }
   
-  .course-card {
-    background: #f8f9fa;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 250px;
-    width: 100%;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
+    .course-card {
+      background: #f8f9fa; /* Light card background */
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 250px; /* Ensure equal height for all cards */
+      width: 100%; /* Responsive card width */
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
   
-  .course-card h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: #333;
-  }
+    .course-card h3 {
+      font-size: 18px;
+      margin-bottom: 10px;
+      color: #333;
+    }
   
-  .course-card p {
-    font-size: 14px;
-    margin-bottom: 10px;
-    color: #666;
-  }
+    .course-card p {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #666;
+    }
   
-  .course-card .explore-btn {
-    font-size: 14px;
-    padding: 8px 16px;
-    color: white;
-    background-color: #007bff;
-    text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-  }
+    .course-card .explore-btn {
+      font-size: 14px;
+      padding: 8px 16px;
+      color: white;
+      background-color: #007bff;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
   
-  .course-card .explore-btn:hover {
-    background-color: #0056b3;
-  }
+    .course-card .explore-btn:hover {
+      background-color: #0056b3;
+    }
   
-  .course-card:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
-  }
+    .course-card:hover {
+      transform: scale(1.02); /* Slight zoom on hover */
+      box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15); /* Deeper shadow */
+    }
   </style>
   

@@ -20,7 +20,7 @@ namespace GrowthPath.FeedbackAPI.Controllers
             Ok(await _feedbackRepository.GetAllFeedbacks());
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Feedback>> GetFeedback(int id)
+        public async Task<ActionResult<Feedback>> GetFeedback(string id)
         {
             var feedback = await _feedbackRepository.GetFeedbackById(id);
             return feedback == null ? NotFound() : Ok(feedback);

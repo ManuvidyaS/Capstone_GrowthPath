@@ -1,41 +1,8 @@
 <div class="user-container">
-  <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <!-- Logo before User text -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
-        User
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/app-layout" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/feedback" class="nav-link">Feedback</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
-          </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/home-page" class="nav-link">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <app-nav-bar></app-nav-bar>
 
   <!-- Content Section -->
+  <div class="page-wrapper">
   <div class="content-container mt-5 pt-5">
     <div class="card">
       <div class="card-body">
@@ -65,7 +32,7 @@
     </div>
   </div>
 </div>
-
+</div>
 <!-- CSS Styling -->
 <style>
 /* Navbar Styles */

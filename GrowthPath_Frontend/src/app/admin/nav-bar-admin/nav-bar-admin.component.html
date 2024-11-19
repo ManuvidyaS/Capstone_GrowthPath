@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg shadow-sm fixed-top py-2">
+    <div class="container-fluid">
+      <!-- Logo before Admin text -->
+      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
+        <img src="growth__2_-removebg-preview.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
+        <span class="text-white">Admin</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a routerLink="/app-dashboard" routerLinkActive="active" class="nav-link">Home</a>
+          </li>
+          <li class="nav-item me-3">
+            <a routerLink="/app-add-course" routerLinkActive="active" class="nav-link">Add Course</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-recommended-course" routerLinkActive="active" class="nav-link me-2">Recommended Courses</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-profile" routerLinkActive="active" class="nav-link">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/app-user-feedback" routerLinkActive="active" class="nav-link">Get Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home-page" routerLinkActive="active" class="nav-link btn-logout">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

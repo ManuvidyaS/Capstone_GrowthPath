@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../service/course.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 
 @Component({
   selector: 'app-deletecourse',
   standalone: true,
-  imports: [CommonModule,FormsModule,RouterOutlet,RouterLink],
+  imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, NavBarAdminComponent],
   templateUrl: './deletecourse.component.html',
   styleUrl: './deletecourse.component.css'
 })

@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, 
 import { UserService } from '../service/user.service';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { NavBarComponent } from "../nav-bar/nav-bar.component";
 
 export interface ApiResponse {
   isSuccess: boolean;
@@ -12,7 +13,7 @@ export interface ApiResponse {
 @Component({
   selector: 'app-update-course',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterOutlet, RouterLink],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, RouterOutlet, RouterLink, NavBarComponent],
   templateUrl: './update-course.component.html',
   styleUrl: './update-course.component.css',
 })

@@ -1,39 +1,40 @@
 <div class="user-container">
-  <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <app-nav-bar></app-nav-bar>
+  <!-- <nav class="navbar navbar-expand-lg shadow-sm fixed-top py-2">
     <div class="container-fluid">
-      <!-- Logo before User text -->
+       Logo before Admin text
       <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
-        User
+        <img src="growth__2_-removebg-preview.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
+        <span class="text-white">User</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
-          <!-- Recommended Courses Link -->
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/app-recommend-course" class="nav-link">Recommended Courses</a>
+          <li class="nav-item">
+            <a routerLink="/app-layout" routerLinkActive="active" class="nav-link">Home</a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/get-assigned-course" class="nav-link">Courses</a>
+         
+          <li class="nav-item">
+            <a routerLink="/app-recommend-course" routerLinkActive="active" class="nav-link me-2">Recommended Courses</a>
           </li>
-          <!-- Feedback Link -->
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/feedback" class="nav-link">Feedback</a>
+          <li class="nav-item">
+            <a routerLink="/get-assigned-course" routerLinkActive="active" class="nav-link me-2">Courses</a>
           </li>
-          <!-- Profile Link -->
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/app-layout/app-userprofile" class="nav-link">Profile</a>
+          <li class="nav-item">
+            <a routerLink="/app-layout/app-userprofile" routerLinkActive="active" class="nav-link">Profile</a>
           </li>
-          <li class="nav-item" routerLinkActive="active">
-            <a routerLink="/home-page" class="nav-link">Logout</a>
+          <li class="nav-item">
+            <a routerLink="/feedback" routerLinkActive="active" class="nav-link">Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/home-page" routerLinkActive="active" class="nav-link btn-logout">Logout</a>
           </li>
         </ul>
       </div>
     </div>
-  </nav>
+  </nav> -->
 
   <router-outlet></router-outlet>
 

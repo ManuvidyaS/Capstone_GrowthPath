@@ -1,0 +1,42 @@
+.navbar {
+    background: linear-gradient(90deg, #3f5efb, #4b4a67); /* Colorful navbar gradient */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar-nav .nav-item {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+  
+  .navbar-toggler {
+    border-color: #ffffff;
+  }
+  
+  .nav-link {
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: #442f38 !important; /* Bright hover color */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-link.active {
+    border-bottom: 2px solid #fc466b;
+  }
+  
+  .nav-link:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fc466b;
+  }

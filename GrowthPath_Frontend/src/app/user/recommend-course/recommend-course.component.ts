@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 
 
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { PublicService } from '../../service/public.service';
+import { NavBarComponent } from "../nav-bar/nav-bar.component";
 
 
 
@@ -16,7 +17,7 @@ import { PublicService } from '../../service/public.service';
 
  standalone: true,
 
- imports: [FormsModule,CommonModule,RouterLink,RouterOutlet],
+ imports: [FormsModule, CommonModule, RouterLink, RouterOutlet, RouterLinkActive, NavBarComponent],
 
  templateUrl: './recommend-course.component.html',
 

@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { LayoutComponent } from '../layout/layout.component';
 import { AuthService } from '../../service/auth.service';
+import { NavBarComponent } from "../nav-bar/nav-bar.component";
 
 
 
@@ -15,7 +16,7 @@ import { AuthService } from '../../service/auth.service';
 
  standalone: true,
 
- imports: [CommonModule,FormsModule,RouterOutlet,RouterLink,LayoutComponent],
+ imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, LayoutComponent, NavBarComponent],
 
  templateUrl: './userprofile.component.html',
 

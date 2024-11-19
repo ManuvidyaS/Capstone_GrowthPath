@@ -1,0 +1,119 @@
+body {
+    background-color: #cdcdd0;
+  }
+  
+  .padding {
+    padding: 8rem !important;
+  }
+  
+  .user-card-full {
+    overflow: hidden;
+  }
+  
+  .card {
+    border-radius: 8px;
+    box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
+    border: none;
+    margin-bottom: 30px;
+    border-color: #442f38;
+  }
+  .page-wrapper {
+    /* margin-top: 25px; Adjust for navbar height */
+    background: linear-gradient(120deg, #fdfbfb, #E9E4E0); /* Light background gradient */
+    /* min-height: calc(100vh - 60px); /* Subtract navbar height */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */ 
+  }
+  
+  .user-card-full .user-profile {
+    border-radius: 5px 0 0 5px;
+    padding: 20px 0;
+    background: linear-gradient(to right, #765ae8, #4b4a67);
+    border-color: #442f38;
+  }
+  
+  .img-radius {
+    border-radius: 50%;
+  }
+  
+  .card-block {
+    padding: 1.25rem;
+    border-color: #442f38;
+  }
+  
+  .b-b-default {
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .m-b-20 {
+    margin-bottom: 20px;
+  }
+  
+  .m-t-40 {
+    margin-top: 20px;
+  }
+  
+  .f-w-600 {
+    font-weight: 600;
+  }
+  
+  .text-muted {
+    color: #454545 !important;
+  }
+  
+  .social-link li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .social-link li a {
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .social-link li a:hover {
+    color: #007bff;
+  }
+  .navbar {
+    background: linear-gradient(90deg, #3f5efb, #4b4a67); /* Colorful navbar gradient */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar-nav .nav-item {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+  
+  .navbar-toggler {
+    border-color: #ffffff;
+  }
+  
+  .nav-link {
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: #442f38 !important; /* Bright hover color */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-link.active {
+    border-bottom: 2px solid #fc466b;
+  }
+  
+  .nav-link:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fc466b;
+  }

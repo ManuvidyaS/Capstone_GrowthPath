@@ -1,46 +1,13 @@
 <div class="user-container">
   <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <!-- Logo and Title -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
-        User
-      </a>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a routerLink="/app-layout" routerLinkActive="active" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-recommend-course" routerLinkActive="active" class="nav-link">Recommended Courses</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/get-assigned-course" routerLinkActive="active" class="nav-link">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/feedback" routerLinkActive="active" class="nav-link">Feedback</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-layout/app-userprofile" routerLinkActive="active" class="nav-link">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/home-page" routerLinkActive="active" class="nav-link">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <app-nav-bar></app-nav-bar>
 
   <router-outlet></router-outlet>
 
   <!-- Feedback Section -->
+  <div class="page-wrapper">
   <div class="container mt-5 pt-5">
+    
     <div class="card shadow-sm">
       <div class="card-body">
         <h2 class="text-center mb-4">Feedback</h2>
@@ -66,7 +33,7 @@
           <!-- User ID Field -->
           <div class="form-floating mb-3">
             <input 
-              type="number" 
+              type="text" 
               class="form-control" 
               id="userId" 
               [(ngModel)]="userId" 
@@ -128,7 +95,7 @@
     </div>
   </div>
 </div>
-
+</div>
 <!-- CSS Styling -->
 <style>
   /* Navbar styles */

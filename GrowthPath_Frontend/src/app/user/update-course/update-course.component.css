@@ -1,0 +1,121 @@
+.navbar {
+    background: linear-gradient(90deg, #3f5efb, #4b4a67); /* Colorful navbar gradient */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.15);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar-nav .nav-item {
+    padding-left: 0px;
+    padding-right: 10px;
+  }
+  
+  .navbar-toggler {
+    border-color: #ffffff;
+  }
+  
+  .nav-link {
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link:hover, .nav-link.active {
+    color: #442f38 !important; /* Bright hover color */
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .nav-link.active {
+    border-bottom: 2px solid #fc466b;
+  }
+  
+  .nav-link:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fc466b;
+  }
+  .centered-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2); /* Slight overlay on gradient */
+    padding-top: 110px; /* Adjust for fixed navbar */
+  }
+  .page-wrapper {
+    margin-top: 25px; /* Adjust for navbar height */
+    background: linear-gradient(120deg, #fdfbfb, #E9E4E0); /* Light background gradient */
+    min-height: calc(100vh - 60px); /* Subtract navbar height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff; /* Clean white form background */
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-container:hover {
+    transform: scale(1);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+  }
+  
+  .form-label {
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .form-control {
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .form-control:focus {
+    outline: none;
+    border-color: #3f5efb; /* Match gradient */
+    box-shadow: 0px 0px 6px rgba(63, 94, 251, 0.5);
+  }
+  
+  .btn-dark {
+    background: linear-gradient(90deg, #4b4a67, #3f5efb); /* Gradient button */
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .btn-dark:hover {
+    background: linear-gradient(90deg, #3f5efb, #fc466b); /* Reverse gradient */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .btn-dark:active {
+    background: #2575fc;
+    transform: translateY(2px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  

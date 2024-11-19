@@ -8,6 +8,7 @@ import { CourseService } from '../../service/course.service';
 
 import { AssignmentService } from '../../service/assignment.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 
 export interface Course {
 
@@ -37,7 +38,7 @@ export interface Employee {
 
  standalone: true,
 
- imports: [CommonModule,FormsModule,RouterOutlet,RouterLink],
+ imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, NavBarAdminComponent],
 
  providers:[AssignmentService],
 

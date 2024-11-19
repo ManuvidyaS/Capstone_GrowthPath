@@ -4,11 +4,12 @@ import { ActivatedRoute, RouterLink, RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Course } from '../Models/Course';
+import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 
 @Component({
   selector: 'app-put-course',
   standalone: true,
-  imports: [FormsModule,CommonModule,RouterOutlet,RouterLink],
+  imports: [FormsModule, CommonModule, RouterOutlet, RouterLink, NavBarAdminComponent],
   templateUrl: './put-course.component.html',
   styleUrl: './put-course.component.css'
 })

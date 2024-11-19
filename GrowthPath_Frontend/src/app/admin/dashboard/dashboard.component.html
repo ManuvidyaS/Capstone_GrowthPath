@@ -1,39 +1,5 @@
 <div class="admin-container">
-  <!-- Navbar Section -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-black shadow-sm fixed-top py-2">
-    <div class="container-fluid">
-      <!-- Logo before Admin text -->
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="logo.jpg" alt="Logo" class="logo me-2" style="width: 30px; height: 30px;"> <!-- Replace 'growth.png' with your logo image -->
-        Admin
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item me-3">
-            <a routerLink="/app-add-course" routerLinkActive="active" class="nav-btn">Add Course</a>
-          </li>
-          <li class="nav-item me-3">
-            <a routerLink="/app-recommended-course" routerLinkActive="active" class="nav-btn">Recommended Courses</a>
-          </li>
-          <li class="nav-item me-3">
-            <a routerLink="/app-profile" routerLinkActive="active" class="nav-btn">Profile</a>
-          </li>
-          <li class="nav-item me-3">
-            <a routerLink="/app-user-feedback" routerLinkActive="active" class="nav-btn">Get Feedback</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/register" routerLinkActive="active" class="nav-btn">Register</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/home-page" routerLinkActive="active" class="nav-btn">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <app-nav-bar-admin></app-nav-bar-admin>
 
   <!-- Main Content Section -->
   <div class="main-content container mt-5 pt-5">
@@ -88,22 +54,11 @@
           </div>
         </div>
       </div>
-      <!-- Card 5 -->
-      <div class="col-md-3">
-        <div class="course-card card h-100 shadow-lg border-0">
-          <img src="c5.jpg" class="card-img-top rounded-top" alt="Course Image 5">
-          <div class="card-body">
-            <h5 class="card-title text-dark">FullStack</h5>
-            <p class="card-text text-muted">Learn advance techniques</p>
-            <a routerLink="app-assign-course" class="btn btn-black w-100">Assign</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      
 
     <!-- Get Courses Button -->
     <div class="text-center mt-5">
-      <a href="/app-get-course" class="btn btn-success btn-lg shadow">Get Courses</a>
+      <a href="/app-get-course" class="btn btn-secondary btn-lg shadow">Get Courses</a>
     </div>
   </div>
 </div>
@@ -115,23 +70,7 @@
     font-family: 'Roboto', sans-serif;
   }
 
-  .navbar {
-    background-color: #000 !important;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-  }
-
-  .navbar-nav .nav-item {
-    padding-left: 0px;
-    padding-right: 10px;
-  }
-
-  .navbar-toggler {
-    border-color: #fff;
-  }
+ 
 
   .card-img-top {
     height: 180px;
@@ -166,46 +105,14 @@
     color: #fff;
   }
 
-  /* Logo Styling */
-  .navbar-brand .logo {
-    width: 30px;
-    height: 30px;
-  }
+  
 
   .main-content {
     padding-top: 80px; /* Adjust to avoid overlap with fixed navbar */
   }
 
-  /* Navbar Button Styling */
-  .nav-btn {
-    padding: 10px 15px;
-    font-size: 14px;
-    text-align: center;
-    display: inline-block;
-    border-radius: 4px;
-    white-space: nowrap;
-    color: #fff;
-    text-decoration: none; /* Remove underline */
-  }
+ 
 
-  .nav-btn:hover {
-    background-color: #333;
-  }
-
-  .navbar-nav .nav-item {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* Active Link Style */
-  .navbar-nav .nav-item .nav-btn.active {
-    color: white; /* Active link will be white */
-    font-weight: bold; /* Optional: make active link bold */
-  }
-
-  .navbar-nav .nav-item .nav-btn:active {
-    color: white;
-    background-color: #333; /* Hover effect */
-  }
+  
+  
 </style>

@@ -15,7 +15,7 @@ namespace GrowthPath.FeedbackAPI.Repositories
 
         public async Task<IEnumerable<Feedback>> GetAllFeedbacks() => await _context.Feedbacks.ToListAsync();
 
-        public async Task<Feedback> GetFeedbackById(int feedbackId) => await _context.Feedbacks.FindAsync(feedbackId);
+        public async Task<Feedback> GetFeedbackById(string feedbackId) => await _context.Feedbacks.FindAsync(feedbackId);
 
         public async Task<IEnumerable<Feedback>> GetFeedbacksByCourseId(int courseId) =>
             await _context.Feedbacks.Where(f => f.CourseId == courseId).ToListAsync();

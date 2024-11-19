@@ -9,6 +9,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 
 import { AuthService } from '../../service/auth.service';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 
 
 @Component({
@@ -17,7 +18,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
 
  standalone: true,
 
- imports: [CommonModule,FormsModule,RouterOutlet,RouterLink,DashboardComponent],
+ imports: [CommonModule, FormsModule, RouterOutlet, RouterLink, DashboardComponent, NavBarAdminComponent],
 
  templateUrl: './profile.component.html',
 

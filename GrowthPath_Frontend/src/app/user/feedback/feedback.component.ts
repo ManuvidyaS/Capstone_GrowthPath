@@ -6,11 +6,13 @@ import { catchError, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
 import { FeedbackService } from '../../service/feedback.service';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
+import { NavBarComponent } from "../nav-bar/nav-bar.component";
 
 @Component({
   selector: 'app-feedback',
   standalone: true,
-  imports: [FormsModule,RouterLink,RouterOutlet],
+  imports: [FormsModule, RouterLink, RouterOutlet, NavBarComponent],
   templateUrl: './feedback.component.html',
   styleUrls: ['./feedback.component.css'],
   providers: [FeedbackService]
@@ -19,10 +21,12 @@ export class FeedbackComponent {
   rating: number = 0;
   suggestion: string = '';
   courseId: number = 1;
-userId: any;
 
+  userData: any;
+  user: any;
+  userId: any;
 
-  constructor(private feedbackService: FeedbackService, private snackBar: MatSnackBar) {}
+  constructor(private feedbackService: FeedbackService, private snackBar: MatSnackBar,private authService: AuthService) {}
 
   onSubmitFeedback() {
     const feedbackData = {
@@ -52,4 +56,24 @@ userId: any;
       })
     ).subscribe();
   }
+  ngOnInit(): void {
+
+    // Fetch user data from local storage using AuthService
+ 
+    const currentUser = this.authService.getCurrentUser();
+ 
+ 
+    // Checking if the currentUser object exists and extracting the user data
+ 
+    if (currentUser && currentUser.user) {
+ 
+      this.userData = currentUser.user;
+ 
+      this.user=currentUser; // Accessing the nested user data
+ 
+    }
+ 
+ }
+ 
+ 
 }

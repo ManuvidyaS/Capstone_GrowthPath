@@ -1,0 +1,95 @@
+
+  /* Page Wrapper */
+  .page-wrapper {
+    /* margin-top: 34px; Adjust for navbar height */
+    background: linear-gradient(120deg, #fdfbfb, #E9E4E0); /* Light background gradient */
+    min-height: calc(100vh - 60px); /* Subtract navbar height */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+  }
+
+  /* Card Styling */
+  .card {
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    background: #ffffff; /* Clean white form background */
+    border: 1px solid #e3e3e3;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+    transform: scale(0.95);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card:hover {
+    transform: scale(1);
+    box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Heading Styling */
+  .card h2 {
+    font-family: 'Poppins', sans-serif; /* Modern font */
+    color: #4b4a67; /* Match navbar color theme */
+    font-weight: bold;
+  }
+
+  /* Form Labels */
+  .form-floating label {
+    color: #6c757d;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  /* Input Fields */
+  .form-control {
+    font-size: 14px;
+    padding: 10px 12px;
+    border: 2px solid #ced4da;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: #3f5efb; /* Match gradient */
+    box-shadow: 0px 0px 6px rgba(63, 94, 251, 0.5);
+  }
+
+  /* Invalid Feedback */
+  .invalid-feedback {
+    font-size: 12px;
+    color: #d9534f;
+    margin-top: 4px;
+  }
+
+  /* Suggestion Textarea */
+  .form-floating textarea {
+    resize: none;
+  }
+
+  /* Submit Button */
+  .btn-primary {
+    background: linear-gradient(90deg, #4b4a67, #3f5efb); /* Gradient button */
+    border: none;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(90deg, #3f5efb, #fc466b); /* Reverse gradient */
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+  }
+
+  .btn-primary:active {
+    background: #2575fc;
+    transform: translateY(2px);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
