@@ -15,6 +15,7 @@ namespace GRowthPath.AssignmentAPI.Service
         Task<bool> UpdateCourseProgress(string employeeId, int courseId, int modulesCompleted);
 
         Task<List<CourseAssignment>> GetAssignedCourses(string employeeId);
+        bool DeleteCourse(int courseId);
 
     }
 }

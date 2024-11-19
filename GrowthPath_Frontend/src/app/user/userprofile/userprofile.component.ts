@@ -39,8 +39,7 @@ export class UserProfileComponent {
    // Fetch user data from local storage using AuthService
 
    const currentUser = this.authService.getCurrentUser();
-
-
+   
    // Checking if the currentUser object exists and extracting the user data
 
    if (currentUser && currentUser.user) {

@@ -22,6 +22,7 @@ import { UserFeedbackComponent } from './admin/user-feedback/user-feedback.compo
 
 import { RecommendCourseComponent } from './user/recommend-course/recommend-course.component';
 import { RecommendedCourseComponent } from './admin/recommended-course/recommended-course.component';
+
 //import { RecommendedCoursesComponent } from './admin/recommended-courses/recommended-courses.component';
 
 export const routes: Routes = [
@@ -30,21 +31,17 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register',  component: RegisterComponent },
   
-  {path: 'app-dashboard',component:DashboardComponent,},
+  {path: 'app-dashboard',component:DashboardComponent},
 
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
-  //{ path: '', redirectTo: 'home-page', pathMatch: 'full' },
-
   
-  
-    //children: [
      { path: 'app-add-course', component: AddCourseComponent },
      { path: 'app-dashboard/app-assign-course', component: AssignCourseComponent },
      { path: 'app-get-course', component: GetCourseComponent },
-     { path: 'app-profile', component: ProfileComponent },
-     //{path: 'app-dashboard/app-get-course-by-id', component: GetCourseByIdComponent },
+     { path: 'app-profile', component: ProfileComponent},
+     
      {path: 'app-put-course', component: PutCourseComponent },
-     {path: 'app-deletecourse', component: DeletecourseComponent },
+     {path: 'app-deletecourse', component: DeletecourseComponent},
      {path: 'app-layout', component: LayoutComponent},
      { path: 'feedback', component: FeedbackComponent },
      {path:'app-recommended-course', component: RecommendedCourseComponent},
@@ -56,11 +53,5 @@ export const routes: Routes = [
      {path:'app-user-feedback', component:UserFeedbackComponent}
 
      
-    //   { path: 'get-course-by-id', component: GetCourseByIdComponent },
-    //   { path: 'put-course', component: PutCourseComponent },
-    //   { path: 'deletecourse', component: DeletecourseComponent },
-    //  // { path: 'recommended-courses', component: RecommendedCoursesComponent },
-    //   { path: '', redirectTo: 'dashboard', pathMatch: 'full' } // Default view for admin
-    // ]
-    //}
+   
 ];
