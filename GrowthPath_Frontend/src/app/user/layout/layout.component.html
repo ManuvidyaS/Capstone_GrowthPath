@@ -1,40 +1,5 @@
 <div class="user-container">
   <app-nav-bar></app-nav-bar>
-  <!-- <nav class="navbar navbar-expand-lg shadow-sm fixed-top py-2">
-    <div class="container-fluid">
-       Logo before Admin text
-      <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
-        <img src="growth__2_-removebg-preview.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
-        <span class="text-white">User</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a routerLink="/app-layout" routerLinkActive="active" class="nav-link">Home</a>
-          </li>
-         
-          <li class="nav-item">
-            <a routerLink="/app-recommend-course" routerLinkActive="active" class="nav-link me-2">Recommended Courses</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/get-assigned-course" routerLinkActive="active" class="nav-link me-2">Courses</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/app-layout/app-userprofile" routerLinkActive="active" class="nav-link">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/feedback" routerLinkActive="active" class="nav-link">Feedback</a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/home-page" routerLinkActive="active" class="nav-link btn-logout">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav> -->
 
   <router-outlet></router-outlet>
 
@@ -43,9 +8,9 @@
     <div class="course-cards container">
       <div class="row justify-content-center">
         <!-- Card 1 -->
-        <div class="col-md-3 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
           <div class="course-card card h-100 text-center">
-            <img src="c3.jpg" class="card-img-top" alt="Course Image 1">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/-TkoO8Z07hI?si=KJvIAcktQAgW2fNW" title="YouTube video player" allowfullscreen></iframe>
             <div class="card-body">
               <h5 class="card-title">C++</h5>
               <p class="card-text">Dive into the world of C++ programming! Learn the foundations of object-oriented programming, efficient memory management, and advanced topics like data structures and algorithms. Ideal for aspiring software developers and competitive programmers.</p>
@@ -53,9 +18,9 @@
           </div>
         </div>
         <!-- Card 2 -->
-        <div class="col-md-3 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
           <div class="course-card card h-100 text-center">
-            <img src="c4.jpg" class="card-img-top" alt="Course Image 2">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/3Arj5zlUPG4?si=QCLva--RZRX6v-mi" title="YouTube video player" allowfullscreen></iframe>
             <div class="card-body">
               <h5 class="card-title">Azure</h5>
               <p class="card-text">Master the basics of Microsoft Azure, including cloud concepts, services, and deployment. This course is perfect for beginners looking to build cloud solutions and advance their career in cloud computing.</p>
@@ -63,11 +28,11 @@
           </div>
         </div>
         <!-- Card 3 -->
-        <div class="col-md-3 mb-4">
+        <div class="col-lg-4 col-md-6 mb-4">
           <div class="course-card card h-100 text-center">
-            <img src="c5.jpg" class="card-img-top" alt="Course Image 3">
+            <iframe class="video-frame" src="https://www.youtube.com/embed/srBwRDiC3Pg?si=d_PTctB0otQ7ExlG" title="YouTube video player" allowfullscreen></iframe>
             <div class="card-body">
-              <h5 class="card-title">FullStack</h5>
+              <h5 class="card-title">Full-Stack Development</h5>
               <p class="card-text">Become a versatile developer with this comprehensive course covering frontend, backend, and database development. Gain hands-on experience with popular tools and frameworks to build modern, dynamic web applications.</p>
             </div>
           </div>
@@ -88,25 +53,24 @@
     right: 0;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 0.3rem 0.8rem; /* Reduced padding */
-    font-size: 0.8rem; /* Smaller font size */
+    padding: 0.3rem 0.8rem;
+    font-size: 0.8rem;
     height: auto;
   }
 
   .navbar-brand {
     color: #fff;
-    font-size: 0.9rem; /* Reduced brand size */
+    font-size: 0.9rem;
   }
 
   .navbar-nav .nav-link {
     text-decoration: none;
     color: white;
-    padding: 5px 8px; /* Reduced padding for links */
-    font-size: 13px; /* Reduced font size for links */
+    padding: 5px 8px;
+    font-size: 13px;
     transition: all 0.3s ease;
   }
 
-  /* Hover Effect */
   .navbar-nav .nav-link:hover,
   .navbar-nav .nav-link:focus {
     background-color: #444;
@@ -114,15 +78,13 @@
     transform: scale(1.03);
   }
 
-  /* Active Link Styling */
   .navbar-nav .nav-item .active {
     background-color: #222;
     color: #fff;
   }
 
-  /* Main content adjustment for fixed navbar */
   .main-content {
-    margin-top: 100px; /* Adjusted for the smaller navbar */
+    margin-top: 100px;
   }
 
   /* Course card styling */
@@ -130,25 +92,32 @@
     border: 1px solid #ddd;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .course-card:hover {
+    transform: scale(1.05);
   }
 
   .course-card .card-title {
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: bold;
   }
 
   .course-card .card-text {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: #555;
+  }
+
+  .video-frame {
+    width: 100%;
+    height: 200px;
+    border: none;
+    border-bottom: 2px solid #ddd;
   }
 
   .container {
     max-width: 1200px;
-  }
-
-  /* Logo Styling */
-  .navbar-brand .logo {
-    width: 25px; /* Smaller logo size */
-    height: 25px;
   }
 </style>
