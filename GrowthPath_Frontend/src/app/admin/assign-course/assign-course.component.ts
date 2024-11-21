@@ -1,5 +1,7 @@
 import { CommonModule } from '@angular/common';
 
+
+
 import { Component, OnInit } from '@angular/core';
 
 import { FormsModule } from '@angular/forms';
@@ -7,8 +9,12 @@ import { FormsModule } from '@angular/forms';
 import { CourseService } from '../../service/course.service';
 
 import { AssignmentService } from '../../service/assignment.service';
+
 import { RouterLink, RouterOutlet } from '@angular/router';
+
 import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
+
+import { EmailService } from '../../service/email.service';
 
 export interface Course {
 
@@ -50,127 +56,155 @@ export interface Employee {
 
 export class AssignCourseComponent implements OnInit {
 
- courses: Course[] = []; // Define the type as Course[]
+  courses: Course[] = [];
 
- employees: Employee[] = []; // Define the type as Employee[]
+  employees: Employee[] = [];
 
- selectedCourseId: string | undefined;
+  selectedCourseId: string | undefined;
 
- selectedEmployeeId: string | undefined;
+  selectedEmployeeId: string | undefined;
 
- message: string | undefined;
+  message: string | undefined;
 
- constructor(
+  constructor(
 
-  private assignmentService: AssignmentService
+   private assignmentService: AssignmentService,
 
- ) {}
+   private emailService: EmailService 
 
- ngOnInit(): void {
+  ) {}
 
-  // Fetch the list of courses and employees
+  ngOnInit(): void {
 
-  this.getCourses();
+   this.getCourses();
 
-  this.getEmployees();
+   this.getEmployees();
 
- }
+  }
 
- // Fetch courses from the backend
+ 
 
- getCourses() {
+  getCourses() {
 
-  this.assignmentService.getCourses().subscribe({
+   this.assignmentService.getCourses().subscribe({
 
-   next: (data) => {
+    next: (data) => {
 
-    this.courses = data;
-
-   },
-
-   error: (error) => {
-
-    console.error('Error fetching courses:', error);
-
-   }
-
-  });
-
- }
-
- // Fetch employees from the backend
-
- getEmployees() {
-
-  this.assignmentService.getEmployees().subscribe({
-
-   next: (data) => {
-
-    this.employees = data;
-
-   },
-
-   error: (error) => {
-
-    console.error('Error fetching employees:', error);
-
-   }
-
-  });
-
- }
-
- // Assign the selected course to the selected employee
-
- assignCourse() {
-
-  if (this.selectedCourseId && this.selectedEmployeeId) {
-
-   const payload = {
-
-    courseId: this.selectedCourseId,
-
-    employeeId: this.selectedEmployeeId
-
-   };
-
-   this.assignmentService.assignCourseToEmployee(payload).subscribe({
-
-    next: (response) => {
-
-     // Check if the response indicates success
-
-     if (response.isSuccess) {
-
-      this.message = 'Course successfully assigned!';
-
-     } else {
-
-      this.message = response.message || 'Failed to assign course.';
-
-     }
+     this.courses = data;
 
     },
 
     error: (error) => {
 
-     console.error('Error assigning course:', error);
-
-     this.message = 'Failed to assign course.';
+     console.error('Error fetching courses:', error);
 
     }
 
    });
 
-  } else {
+  }
 
-   this.message = 'Please select both a course and an employee.';
+
+
+  getEmployees() {
+
+   this.assignmentService.getEmployees().subscribe({
+
+    next: (data) => {
+
+     this.employees = data;
+
+    },
+
+    error: (error) => {
+
+     console.error('Error fetching employees:', error);
+
+    }
+
+   });
+
+  }
+
+  
+
+  async assignCourse() {
+
+   if (this.selectedCourseId && this.selectedEmployeeId) {
+
+    const selectedCourse = this.courses.find(course => course.courseId.toString() === this.selectedCourseId);
+
+    const selectedEmployee = this.employees.find(employee => employee.id === this.selectedEmployeeId);
+
+    if (selectedCourse && selectedEmployee) {
+
+     const payload = {
+
+      courseId: this.selectedCourseId,
+
+      employeeId: this.selectedEmployeeId
+
+     };
+
+     try {
+
+      // Assign course to the employee (mocking success for simplicity)
+
+      await this.assignmentService.assignCourseToEmployee(payload).toPromise();
+
+      this.message = 'Course successfully assigned!';
+
+      // Send email to the employee
+      setTimeout(() => {
+
+        window.location.reload();
+
+      }, 1000);
+
+      const emailPayload = {
+
+       EmployeeId: selectedEmployee.email,
+
+       name: selectedEmployee.userName,
+
+       courseName: selectedCourse.title,
+
+       endDate: selectedCourse.endDate
+
+      };
+
+      await this.emailService.sendAssignRequestEmail(emailPayload);
+
+      alert('Email sent successfully to ' + selectedEmployee.email);
+
+     } catch (error) {
+
+      console.error('Error:', error);
+
+      this.message = 'Failed to assign course or send email.';
+
+     }
+
+    } else {
+
+     this.message = 'Selected course or employee not found.';
+
+    }
+
+   } else {
+
+    this.message = 'Please select both a course and an employee.';
+
+   }
 
   }
 
  }
 
-}
+  
+
+
+
 
 
 

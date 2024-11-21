@@ -29,6 +29,7 @@ export class AddCourseComponent {
   };
   http = inject(HttpClient);
   resultObj: ResponseDTO | undefined;
+minDate: any;
 
   constructor(  
     private router:Router,
@@ -40,6 +41,11 @@ export class AddCourseComponent {
       .subscribe({
         next: (res: ResponseDTO) => {
           this.resultObj = res;
+          setTimeout(() => {
+
+            window.location.reload();
+   
+          }, 1000);
           console.log(this.resultObj);
 
 
@@ -53,4 +59,13 @@ export class AddCourseComponent {
         }
 });
 }
+ngOnInit(): void {
+
+  // Set minimum date for End Date input
+
+  const today = new Date();
+
+  this.minDate = today.toISOString().split('T')[0];
+
+ }
 }

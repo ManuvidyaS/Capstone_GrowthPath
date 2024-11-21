@@ -3,7 +3,7 @@
       <!-- Logo before Admin text -->
       <a class="navbar-brand fw-bold d-flex align-items-center" href="#">
         <img src="growth__2_-removebg-preview.png" alt="Logo" class="logo me-2" style="width: 40px; height: 40px;">
-        <span class="text-white">Admin</span>
+        <span class="text-white">{{userData.name}}</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -24,6 +24,9 @@
           </li>
           <li class="nav-item">
             <a routerLink="/app-user-feedback" routerLinkActive="active" class="nav-link">Get Feedback</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/register" routerLinkActive="active" class="nav-link">Register</a>
           </li>
           <li class="nav-item">
             <a routerLink="/home-page" routerLinkActive="active" class="nav-link btn-logout">Logout</a>

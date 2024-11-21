@@ -25,7 +25,7 @@
           <td>{{ course.endDate | date }}</td>
           <td>{{course.totalModules}}</td>
           <td>
-            <a href="/app-put-course" class="btn btn-warning btn-sm me-2">Update</a>
+            <!-- <button class="btn btn-warning btn-sm me-2"(click)="PutCourse(course)">Update</button> -->
             <button class="btn btn-danger btn-sm me-2" (click)="DeleteCourse(course.courseId)">Delete</button>
             <a href="/app-dashboard/app-assign-course" class="btn btn-dark btn-sm me-2">Assign</a>
           </td>

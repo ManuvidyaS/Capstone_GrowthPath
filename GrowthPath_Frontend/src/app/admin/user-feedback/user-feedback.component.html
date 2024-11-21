@@ -1,39 +1,29 @@
 <div class="admin-container">
-    <!-- Navbar Section -->
+    
     <app-nav-bar-admin></app-nav-bar-admin>
     
     <router-outlet></router-outlet>
 
-    <!-- Content Section with Gap from Navbar -->
+   
     <div class="container mt-5 pt-5">
       <h2 class="text-center mb-4">User Feedbacks</h2>
   
-      <!-- Error Message -->
+      
       <p *ngIf="errorMessage" class="text-danger text-center">{{ errorMessage }}</p>
   
-      <!-- Feedback List -->
+      
       <div class="feedback-list">
         <div *ngFor="let feedback of feedbacks" class="feedback-card p-3 mb-3 shadow-sm rounded">
-          <!-- User ID -->
-          <h5 class="fw-bold">User ID: {{ feedback.userId }}</h5>
-          
-          <!-- Course ID -->
+        <h5 class="fw-bold">User ID: {{ feedback.userId }}</h5>
           <p class="text-muted mb-1">Course ID: {{ feedback.courseId }}</p>
-  
-          <!-- Rating -->
           <p class="text-muted mb-1">Rating: {{feedback.rating}}
-            
           </p>
-  
-          <!-- Suggestion -->
           <p class="mb-0"><strong>Suggestion:</strong> {{ feedback.suggestion }}</p>
         </div>
       </div>
     </div>
   </div>
 
-  
-  <!-- CSS Styling -->
   <style>
     .admin-container {
   font-family: 'Roboto', sans-serif;

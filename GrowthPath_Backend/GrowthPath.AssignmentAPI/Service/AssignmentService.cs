@@ -38,20 +38,13 @@ namespace GRowthPath.AssignmentAPI.Service
         {
 
 
-            // Check if the course is already assigned
-
-
             var existingAssignment = await _context.CourseAssignments
 
 
               .AnyAsync(a => a.EmployeeId == employeeId && a.CourseId == courseId);
 
 
-            if (existingAssignment) return false; // Return false if already assigned
-
-
-
-            // Get total modules from the Learning API
+            if (existingAssignment) return false;
 
 
             var courseModulesResponse = await _httpClient.GetAsync($"http://localhost:7777/learning-api/course/{courseId}");
@@ -63,7 +56,7 @@ namespace GRowthPath.AssignmentAPI.Service
             {
 
 
-                // Log error (could be extended to handle specific status codes)
+               
 
 
                 return false;
@@ -82,7 +75,6 @@ namespace GRowthPath.AssignmentAPI.Service
             {
 
 
-                // Handle missing or invalid course data
 
 
                 return false;
@@ -98,7 +90,7 @@ namespace GRowthPath.AssignmentAPI.Service
             DateTime endDate = courseData.EndDate;
 
 
-            // Assign the course
+            
 
 
             var assignment = new CourseAssignment
@@ -125,7 +117,7 @@ namespace GRowthPath.AssignmentAPI.Service
                 EndDate = endDate
 
 
-                //IsCompleted = false
+                
 
 
             };

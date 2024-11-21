@@ -11,6 +11,7 @@ import { Router, RouterLink, RouterOutlet } from '@angular/router';
 import { NavBarAdminComponent } from "../nav-bar-admin/nav-bar-admin.component";
 
 import { HttpClient } from '@angular/common/http';
+import { Course } from '../Models/Course';
 
 @Component({
 
@@ -64,6 +65,8 @@ export class GetCourseComponent implements OnInit {
 
    const Assign_URL=`http://localhost:7777/assignment-api/get-assigned-courses/${index}`;
 
+   
+
    this.http.delete(API_URL).subscribe({
 
    next: () => {
@@ -108,6 +111,18 @@ export class GetCourseComponent implements OnInit {
 
  }
 
+ PutCourse(course:Course):void {
+  this.courseService.updateCourse(course).subscribe(
+    (response) => {
+      alert('Course updated successfully');
+    },
+    (error) => {
+      console.error('Error updating course:', error);
+      alert('Failed to update course');
+    }
+  );
+
+}
 }
 
 
